@@ -23,3 +23,7 @@ for e in colors:
 colors.append('gray') # добавить в конец
 print(colors == ['red', 'green', 'blue', 'gray']) # True
 colors.remove('red') #del colors[0] # удалить элемент
+
+# my_list.append() # - добавляет значение
+# my_list.pop() # - удаляет элемент
+# my_list.remove() # - удаляет первое иское значение

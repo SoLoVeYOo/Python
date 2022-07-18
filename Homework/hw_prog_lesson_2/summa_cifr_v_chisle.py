@@ -17,5 +17,3 @@ try:
     proverka = float(vvodnoe)
     print(f'Сумма цифр в числе {vvodnoe} равна: {summa_v_chisle(vvodnoe)}')
 except: print('Введите вещесвенное число без ошибки')
-
-

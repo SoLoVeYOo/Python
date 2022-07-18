@@ -2,10 +2,10 @@
 
 vvodnoe = input('Введите число: ')
 
-def factorial (number: str) -> list:
+def factorial (number: int) -> list:
     proizvedenie = 1
     result = []
-    for i in range(1, int(number) + 1):
+    for i in range(1, number + 1):
         proizvedenie *= i
         result.append(proizvedenie) 
     return result

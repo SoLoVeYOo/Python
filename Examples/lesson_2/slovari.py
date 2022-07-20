@@ -30,3 +30,8 @@ for k in dictionary.keys(): # ключи
 
 for v in dictionary.values(): # значения словаря
     print(v)
+
+for k, v in dictionary.items(): # ключи и значения словаря
+    print(k,v)
+
+print(type(dictionary))

@@ -7,10 +7,9 @@ for j in input('Введите строки через пробел: ').split():
 chislo = input('Введите целое число для поиска: ')
 
 def poisk_sovpadeniy(a: list, b: str) -> True:
-    # for i in a:
-    #     if i == b:
-    #         return True
-    if b in a: return True
+    for i in a:
+        if b in i:
+            return True
 
 try:
     proverka = int(chislo)

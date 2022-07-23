@@ -18,11 +18,11 @@ def max_average(sp):
 
 res = max_average(sp)
 
-with open('prog_lesson_3.json', 'w', encoding='utf-8') as fh:
+with open('Seminar\prog_lesson_3\prog_lesson_3.json', 'w', encoding='utf-8') as fh:
     fh.write(json.dumps(res, ensure_ascii=False))
 print('БД успешна сохранена')
 
-with open('prog_lesson_3.json', 'r', encoding='utf-8') as fh: # открываем файл на чтение
+with open('Seminar\prog_lesson_3\prog_lesson_3.json', 'r', encoding='utf-8') as fh: # открываем файл на чтение
     BD = json.load(fh) # загружаем из файла данные в словарь data
 print('БД успещно загружена')
 print(type(BD))

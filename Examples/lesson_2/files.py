@@ -19,7 +19,7 @@
 
 # exit() # закрывает программу принудительно и не выполяет код дальше
 
-path = 'file.txt' # создаем путь к папке
+path = 'Examples\lesson_2\file.txt' # создаем путь к папке
 data = open(path, 'r') # открываем в режиме чтения
 for line in data:
     print(line)

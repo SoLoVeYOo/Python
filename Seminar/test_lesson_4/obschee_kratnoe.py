@@ -14,7 +14,7 @@ def poisk_nok (a:int, b: int) -> int:
         ostatok = temp1 % temp2
         temp1, temp2 = temp2, ostatok
     result = a * b / nod
-    return result
+    return int(result)
 
 try:
     chislo_1 = int(chislo_1)

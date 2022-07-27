@@ -12,6 +12,7 @@ def Fun(k):
     coefficients = [randint(0, 3) for _ in range(k+1)]
     # print(coefficients)
     terms = [GenerateTerms(c, p) for (p, c) in enumerate(coefficients) if c != 0]
+    print(terms)
     return " + ".join(terms[::-1]) + " = 0"
 
 try:

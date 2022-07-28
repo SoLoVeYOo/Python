@@ -13,25 +13,42 @@ with open(r'Homework\hw_prog_lesson_5\summa_mnogochlenov.txt', 'r') as my_file:
         mnogochlen1, mnogochlen2 = lines[0], lines[1]
 
 def find_koeficient (stroka: str) -> dict:
-    koeficienty = {'a': 0, 'b': 0,'d': 0,'c': 0}
+    koeficienty = {}
     stroka = stroka.replace(' + ', ' ')[:-4].split()
     for i in range(len(stroka)):
-        if 'x^3' in stroka[i]: koeficienty['a'], stroka[i] = int(stroka[i].replace('x^3', '')), '0'
-        if 'x^2' in stroka[i]: koeficienty['b'], stroka[i] = int(stroka[i].replace('x^2', '')), '0'
-        if 'x' in stroka[i]: koeficienty['d'], stroka[i] = int(stroka[i].replace('x', '')), '0'
-    if int(stroka[len(stroka)-1]) != 0: koeficienty['c'] = int(stroka[len(stroka)-1])
+        if 'x^' in stroka[i]:
+            koeficienty[int(stroka[i].split('x^')[1])] = int(stroka[i].split('x^')[0])
+        elif 'x' in stroka[i]: 
+            koeficienty[1] = int(stroka[i].split('x')[0])
+        else: koeficienty[0] = int(stroka[i])
     return koeficienty
 
 def summa_mnogochlenov (slovar1: dict, slovar2: dict) -> str:
     stroka = []
-    a = slovar1['a'] + slovar2['a']
-    b = slovar1['b'] + slovar2['b']
-    d = slovar1['d'] + slovar2['d']
-    c = slovar1['c'] + slovar2['c']
-    if c != 0: stroka.append(f'{c}')
-    if d != 0: stroka.append(f'{d}x')
-    if b != 0: stroka.append(f'{b}x^2')
-    if a != 0: stroka.append(f'{a}x^3')
+    for s1, k1 in slovar1.items():
+        temp = False
+        for s2, k2 in slovar2.items():
+            if s1 == s2:
+                if s1 > 1 and k1+k2 != 0: stroka.append(f'{k1+k2}x^{s1}')  
+                elif s1 == 1 and k1+k2 != 0:stroka.append(f'{k1+k2}x')
+                elif k1+k2 != 0: stroka.append(f'{k1+k2}')
+                temp = True
+                continue
+        if temp == False: 
+            if s1 > 1: stroka.append(f'{k1}x^{s1}')
+            elif s1 == 1: stroka.append(f'{k1}x')
+            else: stroka.append(f'{k1}')
+    for s2, k2 in slovar2.items():
+        temp = False
+        for s1, k1 in slovar1.items():
+            if s2 == s1:
+                temp = True
+                continue
+        if temp == False:
+            if s2 > 1: stroka.append(f'{k2}x^{s2}')
+            elif s2 == 1: stroka.append(f'{k2}x')
+            else: stroka.append(f'{k2}')
+    stroka.reverse()     
     return ' + '.join(stroka[::-1]) + ' = 0'
 
 koeficienty1 = find_koeficient(mnogochlen1)
@@ -40,6 +57,4 @@ koeficienty2 = find_koeficient(mnogochlen2)
 with open(r'Homework\hw_prog_lesson_5\summa_mnogochlenov.txt','a') as my_file:
             my_file.write(f'\n{summa_mnogochlenov(koeficienty1, koeficienty2)}')
 
-print(koeficienty1) # для проверки в терминале
-print(koeficienty2) # для проверки в терминале
 print(summa_mnogochlenov(koeficienty1, koeficienty2)) # для проверки в терминале

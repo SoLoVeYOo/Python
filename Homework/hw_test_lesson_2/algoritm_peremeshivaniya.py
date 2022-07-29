@@ -9,13 +9,10 @@ for i in range(5):
 def selection_sort(spisok: list) -> list:
     for j in range(len(spisok)):
         min_position = j
-        k = j + 1
         for k in range(len(spisok)):
-            if (spisok[k] < spisok[min_position]):
+            if (spisok[k] > spisok[min_position]):
                 min_position = k
-            temp = spisok[j]
-            spisok[j] = spisok[min_position]
-            spisok[min_position] = temp
+            spisok[min_position], spisok[j] = spisok[j], spisok[min_position]
 
 print(numbers)
 selection_sort(numbers)

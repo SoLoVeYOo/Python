@@ -15,6 +15,10 @@ def sort_net_povtoreniy (spisok: list) -> list:
     spisok_out = list(filter(lambda x: spisok.count(x) == 1, spisok))
     return spisok_out
 
+def sort_net_povtoreniy_v2 (spisok: list) -> list:
+    spisok_out = [i for i in spisok if spisok.count(i) == 1]
+    return spisok_out
+
 def sort_net_povtoreniy_2 (stroka: str) -> list:
     '''
     все в одном (и перевод строки в список и сортировка)

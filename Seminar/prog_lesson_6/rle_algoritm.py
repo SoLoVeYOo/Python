@@ -22,11 +22,13 @@ def rle_zip (stroka: str) -> list:
 with open(r'Seminar\prog_lesson_6\rle_text.json','w', encoding='utf-8') as my_zip_file:
         my_zip_file.write(json.dumps(rle_zip(my_text), ensure_ascii=False))
 
+print(rle_zip(my_text)) # для проверки в терминале
+
 with open(r'Seminar\prog_lesson_6\rle_text.json','r', encoding='utf-8') as my_zip_file:
         spisok = json.load(my_zip_file)
 
 def rle_un_zip (spisok_in: list) -> str:
-    result = ''.join([str(spisok_in[i][1]*spisok_in[i][0]) for i in range(len(spisok_in))])
+    result = ''.join([str(spisok_in[i][0]*spisok_in[i][1]) for i in range(len(spisok_in))])
     return result
 
 print(rle_un_zip(spisok)) # для проверки в терминале

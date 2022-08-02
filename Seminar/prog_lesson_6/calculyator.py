@@ -18,45 +18,32 @@ for i in range(len(primer)):
     if i+1 == len(primer):
         result.append(float(temp))
 print(result)
-slovar1 = ['*', '/']
-slovar2 = ['-', '+']
+slovar = ['/', '*', '-', '+']
 b = False
-a = True
+a = False
 while b == False:
-    while a == True:
-        a = False
-        for i in range(len(result)):
-            if str(result[i]) in '*/':
-                oper = result[i]
-                match oper:
-                    case '/': temp = result[i-1] / result[i+1]
-                    case '*': temp = result[i-1] * result[i+1]  
-                a = True
-                print(temp)
-        result.insert(i-1, temp)
-        del result[i]
-        del result[i]
-        del result[i] 
-        print(result) 
+    for oper in slovar:
+        while oper in result:
+            for i in range(len(result)):
+                if oper == result[i]:
+                    match oper:
+                        case '/': temp = result[i-1] / result[i+1]
+                        case '*': temp = result[i-1] * result[i+1]
+                        case '+': temp = result[i-1] + result[i+1]
+                        case '-': temp = result[i-1] - result[i+1]
+                    print(temp)
+                    result.insert(i-1, temp)
+                    del result[i]
+                    del result[i]
+                    del result[i]
+                    print(result)
+                    a = True
+                if a == True:
+                    a = False
+                    break 
         if len(result) == 1:
             b = True
             break
-    for i in range(len(result)):
-        if str(result[i]) in '+-':
-            oper = result[i]
-            match oper:
-                case '+': temp = result[i-1] + result[i+1]
-                case '-': temp = result[i-1] - result[i+1]  
-            print(temp)
-            a = True
-        if a == True: break
-        result.insert(i-1, temp)
-        del result[i]
-        del result[i]
-        del result[i] 
-        print(result) 
-        if len(result) == 1: b = True
-    
 print(result)
 
 

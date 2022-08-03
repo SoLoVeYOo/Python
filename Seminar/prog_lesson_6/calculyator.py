@@ -6,46 +6,41 @@ import string
 
 primer = input('Введите уравнение: ')
 
-result = []
-temp = ''
-for i in range(len(primer)):
-    if primer[i].isdigit() == True or primer[i] == '.':
-        temp += primer[i]
-    elif primer[i] in ['*', '/', '+', '-']:
-        result.append(float(temp))
-        result.append(primer[i])
-        temp = ''
-    if i+1 == len(primer):
-        result.append(float(temp))
-print(result)
-slovar = ['/', '*', '-', '+']
-b = False
-a = False
-while b == False:
-    for oper in slovar:
-        while oper in result:
-            for i in range(len(result)):
-                if oper == result[i]:
-                    match oper:
-                        case '/': temp = result[i-1] / result[i+1]
-                        case '*': temp = result[i-1] * result[i+1]
-                        case '+': temp = result[i-1] + result[i+1]
-                        case '-': temp = result[i-1] - result[i+1]
-                    print(temp)
-                    result.insert(i-1, temp)
-                    del result[i]
-                    del result[i]
-                    del result[i]
-                    print(result)
-                    a = True
-                if a == True:
-                    a = False
-                    break 
-        if len(result) == 1:
-            b = True
-            break
-print(result)
+operacii = ['/', '*', '-', '+']
 
+def sort_primer (stroka: str) -> list:
+    result, temp_str = [], ''
+    if stroka[0] == '-': temp_str, stroka = '-', stroka[1:]
+    for i in range(len(stroka)):
+        if stroka[i].isdigit() == True or stroka[i] == '.': temp_str += stroka[i]
+        elif stroka[i] in operacii:
+            result.append(float(temp_str))
+            result.append(stroka[i])
+            temp_str = ''
+        if i+1 == len(stroka): result.append(float(temp_str))
+    return result
+
+def calc(spisok: list) -> float:
+    for oper in operacii:
+        while oper in spisok:
+            for i in range(len(spisok)):
+                prov = False
+                if oper == spisok[i]:
+                    match oper:
+                        case '/': res = spisok[i-1] / spisok[i+1]
+                        case '*': res = spisok[i-1] * spisok[i+1]
+                        case '-': res = spisok[i-1] - spisok[i+1]
+                        case '+': res = spisok[i-1] + spisok[i+1]
+                    spisok.insert(i-1, res)
+                    del spisok[i]
+                    del spisok[i]
+                    del spisok[i]
+                    prov = True
+                if prov == True: break 
+        if len(spisok) == 1: break
+    return spisok[0]
+
+print(calc(sort_primer(primer)))
 
 
 

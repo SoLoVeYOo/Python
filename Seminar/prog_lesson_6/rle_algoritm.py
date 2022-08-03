@@ -2,7 +2,7 @@
 
 import json
 
-with open(r'Seminar\prog_lesson_6\rle_text.txt','r', encoding='utf-8') as my_file:
+with open(r'Seminar\prog_lesson_6\rle_text_in.txt','r', encoding='utf-8') as my_file:
         my_text = my_file.read()
 
 print(my_text) # для проверки в терминале
@@ -33,5 +33,5 @@ def rle_un_zip (spisok_in: list) -> str:
 
 print(rle_un_zip(spisok)) # для проверки в терминале
 
-with open(r'Seminar\prog_lesson_6\rle_text.txt','a', encoding='utf-8') as my_file:
+with open(r'Seminar\prog_lesson_6\rle_text_out.txt','w', encoding='utf-8') as my_file:
         my_file.write(f'\n{rle_un_zip(spisok)}')

@@ -1,6 +1,6 @@
 # Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
 
-vvodnoe = input('Введите число: ')
+number = input('Введите число: ')
 
 def summa_v_chisle(chislo: str) -> int:
     summa = 0
@@ -10,8 +10,8 @@ def summa_v_chisle(chislo: str) -> int:
     return summa
 
 try:
-    proverka = float(vvodnoe)
-    print(f'Сумма цифр в числе {vvodnoe} равна: {summa_v_chisle(vvodnoe)}')
+    proverka = float(number)
+    print(f'Сумма цифр в числе {number} равна: {summa_v_chisle(number)}')
 except: print('Введите вещесвенное число без ошибки')
 
 

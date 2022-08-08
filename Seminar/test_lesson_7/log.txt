@@ -1,0 +1,3 @@
+пользователь: Дима | время: 23:04 | пример: 2+2 | ответ: 4.0
+пользователь: Дима | время: 23:17 | пример: 2*(2+2) | ответ: 8.0
+пользователь: Дима | время: 00:28 | пример: & C:/Users/Dmitrii/AppData/Local/Programs/Python/Python310/python.exe c:/Users/Dmitrii/Documents/GeekBrains/Python/Homework/hw_test_lesson_7/modul_add.py | ответ: выражение было введено с ошибками.

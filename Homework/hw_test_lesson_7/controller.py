@@ -16,11 +16,11 @@ def buttom_click():
                 temp1 = view.add_new()
                 if temp1[0] == 'q': break
                 else: ad(temp1[0], temp1[1], temp1[2])
-                print('Хотите добавить еще одни контакт?')
+                print('Хотите добавить еще один контакт?')
         elif vvod == '2':
             while True:
                 temp2 = view.print_find
                 if temp2 == 'q': break
                 else: print(fn(temp2))
-                print('Хотите найти еще одни контакт?')
+                print('Хотите найти еще один контакт?')
         else: print('Вы ввели некорректные данные, попробуйте еще.')

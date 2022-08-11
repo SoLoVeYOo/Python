@@ -1,12 +1,13 @@
-def view_result(familiya, tel):
-    print(f'{familiya} номер телефона {tel}')
+def return_find_result(familiya, tel):
+    print(f'{familiya}, номер телефона в записной книжке: {tel}')
 
-def add_new():
-    data = [i for i in input('Введите данные "фамилия" "имя" "телефон" (без ковычек),'
+def new_contakt():
+    contakt = [i for i in input('Введите данные "фамилия" "имя" "телефон" (без ковычек),'
     '\nкоторые хотите добавить через запятую'
     '\n(для выхода в предыдущее меню введите "q" без ковычек).'
     '\nВвод: ').split(',')]
-    return data
+    return contakt
 
-def print_find():
-    return input('Введите фамилию для поиска (для выхода в предыдущее меню введите "q" без ковычек): ')
+def find_phone():
+    poisk = input('Введите фамилию для поиска (для выхода в предыдущее меню введите "q" без ковычек): ')
+    return poisk

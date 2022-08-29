@@ -1,7 +1,7 @@
 import csv
 
 def find_number(last_name):
-    with open(r'C:\Users\solov\OneDrive\Документы\GeekBrains\python\Homework\hw_test_lesson_7\data_base.csv', encoding='utf-8') as file:
+    with open(r'Homework\hw_test_lesson_7\data_base.csv', encoding='utf-8') as file:
         filereader = csv.reader(file, delimiter=",")
         temp = False
         for row in filereader:

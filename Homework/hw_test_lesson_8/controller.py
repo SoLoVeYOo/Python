@@ -1,5 +1,5 @@
 from modul_add import add_info as ai
-from modul_find import find_number as fn
+from modul_find import find_number as fi
 import view
 
 def buttom_click():
@@ -45,8 +45,12 @@ def programm_work(nickname_user):
         elif comanda == '2':
             while True:
                 temp2 = view.find_info()
-                if temp2 == 'q': break
-                else: view.return_find_result(temp2, fn(temp2))
+                if temp2[0] == 'q': break
+                try:
+                    temp2[0] = int(temp2[0])
+                    if len(temp2) == 2 and 1 <= temp2[0] <= 5: view.return_find_result(temp2, fi(temp2))
+                    else: print('Некорректный ввод данных!')
+                except: print('Некорректный ввод данных!')
                 print('Продолжить поиск?')
         elif comanda == '3':
             while True:

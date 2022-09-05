@@ -1,6 +1,6 @@
 import csv
 
-def find_number(last_name):
+def find_info(last_name):
     with open(r'Homework\hw_test_lesson_8\data_base.csv', encoding='utf-8') as file:
         filereader = csv.reader(file, delimiter=",")
         temp = False

@@ -1,4 +1,3 @@
-from os import name
 from modul_add import add_contakt as ac
 from modul_find import find_number as fn
 import view

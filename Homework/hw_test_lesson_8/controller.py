@@ -28,34 +28,38 @@ def buttom_click():
 
 def programm_work(nickname_user):
     while True:
-        comanda = input('Что вы желаете сделать? ('
-        '\nВведите "1" если нужно добавить запись в базу учеников.'
-        '\nВведите "2" если нужно найти запись ученика.'
-        '\nВведите "3" если нужно изменить запись ученика.'
-        '\nВведите "q" для выхода из программы.'
+        comanda = input('1. Добавить запись'
+        '\n2. Поиск записи'
+        '\n3. Изменить запись'
+        '\n4. Выход'
         '\nВвод: ')
-        if comanda == 'q': break
-        elif comanda == '1':
-            while True:
-                temp1 = view.new_info()
-                if temp1[0] == 'q': break
-                if len(temp1) == 5: ai(temp1[0], temp1[1], temp1[2], temp1[3], temp1[4])
-                else: print('Некорректный ввод данных!')
-                print('Добавить еще одну запись?')
-        elif comanda == '2':
-            while True:
-                temp2 = view.find_info()
-                if temp2[0] == 'q': break
-                try:
-                    temp2[0] = int(temp2[0])
-                    if len(temp2) == 2 and 1 <= temp2[0] <= 5: view.return_find_result(temp2, fi(temp2))
-                    else: print('Некорректный ввод данных!')
-                except: print('Некорректный ввод данных!')
-                print('Продолжить поиск?')
-        elif comanda == '3':
-            while True:
-                temp3 = 
-        else: print('Вы ввели некорректные данные, попробуйте еще раз')
+        try:
+            comanda = int(comanda)
+            if 1 <= comanda <= 4:
+                match comanda:
+                    case 1:
+                        while True:
+                            temp1 = view.new_info()
+                            if temp1[0] == 'q': break
+                            if len(temp1) == 5: ai(temp1[0], temp1[1], temp1[2], temp1[3], temp1[4])
+                            else: print('Некорректный ввод данных!')
+                            print('Добавить еще одну запись?')
+                    case 2:
+                        while True:
+                            temp2 = view.find_info()
+                            if temp2[0] == 'q': break
+                            try:
+                                temp2[0] = int(temp2[0])
+                                if len(temp2) == 2 and 1 <= temp2[0] <= 5: view.return_find_result(temp2, fi(temp2))
+                                else: print('Некорректный ввод данных!')
+                            except: print('Некорректный ввод данных!')
+                            print('Продолжить поиск?')
+                    case 3:
+                        while True:
+                            temp3 = 
+                    case 4: break
+            else: print('Вы ввели некорректные данные, попробуйте еще раз')
+        except: print('Вы ввели некорректные данные, попробуйте еще раз')
 
 
 def programm_work2(name):   
